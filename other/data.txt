@@ -1,0 +1,5 @@
+Xurxo;1
+Sergio;2
+Raquel;10
+Martin;5
+Fer;8
