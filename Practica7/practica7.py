@@ -66,13 +66,13 @@ etiqueta_titulo = tk.Label(ventana, text = 'Operaciones con dos numeros')
 etiqueta_titulo.grid(row=0, column=1, columnspan=3)
 
 etiqueta_num1 = tk.Label(ventana, text = 'Primer sumando')
-num1 = ''
+num1 = tk.DoubleVar()
 entrada_num1 = tk.Entry(ventana, textvariable=num1)
 etiqueta_num1.grid(row=1, column=0)
 entrada_num1.grid(row=1, column=1)
 
 etiqueta_num2 = tk.Label(ventana, text = 'Segundo sumando')
-num2 = ''
+num2 = tk.DoubleVar()
 entrada_num2 = tk.Entry(ventana, textvariable=num2)
 etiqueta_num2.grid(row=2, column=0)
 entrada_num2.grid(row=2, column=1)
