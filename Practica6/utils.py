@@ -24,6 +24,7 @@ def elements_above(matrix, column, value):
     
     return elements
 
+# Una función que transforma un fichero de texto en una matriz.
 def text2matrix(filepath):
     matrix = []
     with open(filepath, 'r') as file:
@@ -33,6 +34,7 @@ def text2matrix(filepath):
     
     return matrix
 
+# Una función que transforma una matriz en un fichero de texto.
 def matrix2text(matrix, filepath):
     with open(filepath, 'w') as file:
         for row in matrix:
