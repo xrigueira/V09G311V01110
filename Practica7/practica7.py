@@ -11,61 +11,95 @@ Al pulsar el botón "Borrar datos introducidos", se resetean los valores introdu
 
 import tkinter as tk
 
-def calcular():
-    if operacion.get() == "+":
-        resultado.set(int(num1.get()) + int(num2.get()))
-    elif operacion.get() == "-":
-        resultado.set(int(num1.get()) - int(num2.get()))
-    elif operacion.get() == "*":
-        resultado.set(int(num1.get()) * int(num2.get()))
-    elif operacion.get() == "/":
-        resultado.set(int(num1.get()) / int(num2.get()))
+# def borrar():
+#     num1.set("")
+#     num2.set("")
+#     resultado.set("")
+#     operacion.set("")
 
-def borrar():
-    num1.set("")
-    num2.set("")
-    resultado.set("")
-    operacion.set("")
+def etiquetas():
+    if var.get() == 1:
+        etiqueta_num1.config(text = 'Primer sumando')
+        etiqueta_num2.config(text = 'Segundo sumando')
+    
+    elif var.get() == 2:
+        etiqueta_num1.config(text = 'Minuendo')
+        etiqueta_num2.config(text = 'Sustraendo')
+    
+    elif var.get() == 3:
+        etiqueta_num1.config(text = 'Primer factor')
+        etiqueta_num2.config(text = 'Segundo factor')
+    
+    elif var.get() == 4:
+        etiqueta_num1.config(text = 'Dividendo')
+        etiqueta_num2.config(text = 'Divisor')
+
+def operar():
+    if var.get() == 1:
+        result = num1.get() + num2.get()
+    
+    elif var.get() == 2:
+        result = num1.get() - num2.get()
+    
+    elif var.get() == 3:
+        result = num1.get() * num2.get()
+    
+    elif var.get() == 4:
+        if num2.get() == 0:
+            result = 'No se puede dividir entre 0'
+        else:
+            result = num1.get() / num2.get()
+    
+    etiqueta_resultado.config(text = result)
 
 def finalizar():
     ventana.destroy()
 
 ventana = tk.Tk()
 ventana.title("Calculadora")
-ventana.geometry("400x200")
+ventana.geometry("900x200")
 
-num1 = tk.StringVar()
-num2 = tk.StringVar()
-resultado = tk.StringVar()
-operacion = tk.StringVar()
+var = tk.IntVar()
+result = tk.StringVar()
 
-etiqueta1 = tk.Label(ventana, text="Primer sumando")
-etiqueta1.grid(row=0, column=0)
-entrada1 = tk.Entry(ventana, textvariable=num1)
-entrada1.grid(row=0, column=1)
+etiqueta_titulo = tk.Label(ventana, text = 'Operaciones con dos numeros')
+etiqueta_titulo.grid(row=0, column=1, columnspan=3)
 
-etiqueta2 = tk.Label(ventana, text="Segundo sumando")
-etiqueta2.grid(row=1, column=0)
-entrada2 = tk.Entry(ventana, textvariable=num2)
-entrada2.grid(row=1, column=1)
+etiqueta_num1 = tk.Label(ventana, text = 'Primer sumando')
+num1 = ''
+entrada_num1 = tk.Entry(ventana, textvariable=num1)
+etiqueta_num1.grid(row=1, column=0)
+entrada_num1.grid(row=1, column=1)
 
-etiqueta3 = tk.Label(ventana, text="Resultado")
-etiqueta3.grid(row=2, column=0)
-entrada3 = tk.Entry(ventana, textvariable=resultado)
-entrada3.grid(row=2, column=1)
+etiqueta_num2 = tk.Label(ventana, text = 'Segundo sumando')
+num2 = ''
+entrada_num2 = tk.Entry(ventana, textvariable=num2)
+etiqueta_num2.grid(row=2, column=0)
+entrada_num2.grid(row=2, column=1)
 
-etiqueta4 = tk.Label(ventana, text="Operación")
-etiqueta4.grid(row=3, column=0)
-entrada4 = tk.Entry(ventana, textvariable=operacion)
-entrada4.grid(row=3, column=1)
+marco_seleccion = tk.LabelFrame(ventana, text = 'Elige una operación')
+marco_seleccion.grid(row=3, column=0, columnspan=2)
+r1 = tk.Radiobutton(marco_seleccion, text = 'Suma', variable=var, value = 1, command=etiquetas)
+r1.select()
+r1.grid(row=0, column=0)
+r2 = tk.Radiobutton(marco_seleccion, text = 'Resta', variable=var, value = 2, command=etiquetas)
+r2.grid(row=0, column=1)
+r3 = tk.Radiobutton(marco_seleccion, text = 'Multiplicación', variable=var, value = 3, command=etiquetas)
+r3.grid(row=0, column=2)
+r4 = tk.Radiobutton(marco_seleccion, text = 'División', variable=var, value = 4, command=etiquetas)
+r4.grid(row=0, column=3)
 
-boton1 = tk.Button(ventana, text="Calcular", command=calcular)
-boton1.grid(row=4, column=0)
+# Definir botones
+boton_calcular = tk.Button(ventana, text = 'Calcular', command=operar)
+boton_calcular.grid(row=1, column=3)
 
-boton2 = tk.Button(ventana, text="Borrar datos introducidos", command=borrar)
-boton2.grid(row=4, column=1)
+etiqueta_resultado = tk.Label(ventana, text = 'Aquí visualizaremos el resultado')
+etiqueta_resultado.grid(row=2, column=3)
 
-boton3 = tk.Button(ventana, text="Finalizar", command=finalizar)
-boton3.grid(row=4, column=2)
+boton_borrar = tk.Button(ventana, text = 'Borrar datos introducidos')
+boton_borrar.grid(row=4, column=3)
+
+boton_finalizar = tk.Button(ventana, text = 'Finalizar', command=finalizar)
+boton_finalizar.grid(row=5, column=3)
 
 ventana.mainloop()

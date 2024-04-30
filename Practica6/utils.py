@@ -31,7 +31,6 @@ def text2matrix(filepath):
         for line in file:
             line = line.strip().split(',')
             matrix.append(list(line))
-    
     return matrix
 
 # Una función que transforma una matriz en un fichero de texto.
