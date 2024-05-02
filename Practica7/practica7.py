@@ -50,6 +50,10 @@ def operar():
         else:
             result = num1.get() / num2.get()
     
+    # Clear the entry boxes
+    num1.set('')
+    num2.set('')
+
     etiqueta_resultado.config(text = result)
 
 def finalizar():
@@ -67,12 +71,14 @@ etiqueta_titulo.grid(row=0, column=1, columnspan=3)
 
 etiqueta_num1 = tk.Label(ventana, text = 'Primer sumando')
 num1 = tk.DoubleVar()
+num1.set('')
 entrada_num1 = tk.Entry(ventana, textvariable=num1)
 etiqueta_num1.grid(row=1, column=0)
 entrada_num1.grid(row=1, column=1)
 
 etiqueta_num2 = tk.Label(ventana, text = 'Segundo sumando')
 num2 = tk.DoubleVar()
+num2.set('')
 entrada_num2 = tk.Entry(ventana, textvariable=num2)
 etiqueta_num2.grid(row=2, column=0)
 entrada_num2.grid(row=2, column=1)
