@@ -61,7 +61,7 @@ def finalizar():
 
 ventana = tk.Tk()
 ventana.title("Calculadora")
-ventana.geometry("900x200")
+ventana.geometry("500x200")
 
 var = tk.IntVar()
 result = tk.StringVar()
