@@ -50,11 +50,16 @@ def operar():
         else:
             result = num1.get() / num2.get()
     
-    # Clear the entry boxes
-    num1.set('')
-    num2.set('')
+    # # Clear the entry boxes
+    # num1.set('')
+    # num2.set('')
 
     etiqueta_resultado.config(text = result)
+
+def borrar():
+    num1.set('')
+    num2.set('')
+    etiqueta_resultado.config(text = 'Aquí visualizaremos el resultado')
 
 def finalizar():
     ventana.destroy()
@@ -102,7 +107,7 @@ boton_calcular.grid(row=1, column=3)
 etiqueta_resultado = tk.Label(ventana, text = 'Aquí visualizaremos el resultado')
 etiqueta_resultado.grid(row=2, column=3)
 
-boton_borrar = tk.Button(ventana, text = 'Borrar datos introducidos')
+boton_borrar = tk.Button(ventana, text = 'Borrar datos introducidos', command=borrar)
 boton_borrar.grid(row=4, column=3)
 
 boton_finalizar = tk.Button(ventana, text = 'Finalizar', command=finalizar)
