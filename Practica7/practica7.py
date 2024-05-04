@@ -9,13 +9,7 @@ Al pulsar el botón "Finalizar", terminamos la ejecución del programa.
 Al pulsar el botón "Borrar datos introducidos", se resetean los valores introducidos dejando los cuadros de entrada en blanco
 """
 
-import tkinter as tk
-
-# def borrar():
-#     num1.set("")
-#     num2.set("")
-#     resultado.set("")
-#     operacion.set("")
+import tkinter as tk 
 
 def etiquetas():
     if var.get() == 1:
