@@ -1,8 +1,3 @@
-#Examen de avaliación Final Enxeñería de Minas e Enerxía 
-#Autor: Prof. Dr. Manuel Pérez Cota
-#20210611v; MOD 20230531+; MOD 20230606m
-#SIMPLIFICADO PARA DUDAS
-
 import os
 
 #Función de carga de datos

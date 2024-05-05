@@ -1,6 +1,3 @@
-#Examen Final EEM parte IGU
-#autor: Prof. Dr. Manuel Pérez Cota
-#20210611v; mod 20230531 sin locale
 
 from tkinter import *
 
