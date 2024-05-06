@@ -81,48 +81,31 @@ def carga_datos(ruta_fichero):
     datos = text2matrix(ruta_fichero)
 
     while "N" != opcion_carga.upper():
-        codigo_producto = str(input("Dame el nombre del mineral: "))
-        nombre_producto = str(input("Dame el peso atómico: ")) 
+        nombre_mineral = str(input("Dame el nombre del mineral: "))
+        codigo_mineral = str(input("Dame el peso atómico: ")) 
         precio = str(input("Dame el precio/kg: "))
-        cantidad_almacen = str(input("Dame el total: "))
-        datos.append([codigo_producto, nombre_producto, precio, cantidad_almacen])
+        datos.append([nombre_mineral, codigo_mineral, precio])
         
         opcion_carga = input("¿Quieres meter más datos (n=no)? ")
 
     matrix2text(datos, ruta_fichero)
 
-# Función de modificar datos
-def modificar_fichero(ruta_fichero):
+def generar_informe(ruta_fichero):
     
     # Leer los datos
     datos = text2matrix(ruta_fichero)
-    
-    cambio = str(input("¿Qué quieres cambiar el nombre del mineral (m) o el peso atómico (c) o nada(n)? " ))
-    
-    # Extraer los productos
-    productos = []
-    for producto in datos:
-        productos.append(producto[1])
-    
-    if cambio.lower() == "p":
-        producto = str(input("Dame el nombre del producto: "))
-        if producto in productos:
-            precio = str(input("Dame el precio: "))
-            datos[productos.index(producto)][2] = precio
-    
-    elif cambio.lower() == "c":
-        producto = str(input("Dame el nombre del producto: "))
-        if producto in productos:
-            cantidad = str(input("Dame la cantidad: "))
-            datos[productos.index(producto)][3] = cantidad
-    
-    elif cambio.lower() == "n":
-        print ("Sin cambios ")
-    
-    matrix2text(datos, ruta_fichero)
 
-def generar_informe(ruta_fichero):
-    pass
+    # Preguntar al usuario cuántos kilogramos se van a calcular
+    kilogramos = int(input('Kilogramos a calcular: '))
+
+    # Multiplicar el precio por kilogramo por la cantidad de kilogramos y añadirlo a la matriz en la última columna
+    for producto in datos:
+        producto.append(str(float(producto[2]) * kilogramos))
+    
+    # Imprimir el informe
+    print('Nombre del mineral\tPeso atómico\tPrecio/kg\tTotal')
+    for producto in datos:
+        print('\t'.join(producto))
 
 # Menú de opciones
 opcion = 0
@@ -140,16 +123,16 @@ while opcion != 4:
         else:
             print('Hasta luego')
         
-        # Definir la opcion 1
+        # Definir la opcion 1. Si nos saltamos la opción 1 el resto no funcionarán tal y como está planeado el ejercicio
         if opcion == 1:
-            crear_fichero()
+            fichero = crear_fichero()
         
         # Definir la opcion 2
         elif opcion == 2:
-            modificar_fichero()
+            carga_datos(ruta_fichero=fichero)
 
         elif opcion == 3:
-            generar_informe()
+            generar_informe(ruta_fichero=fichero)
 
     # En caso de que no se introduzca un numero
     except ValueError:
