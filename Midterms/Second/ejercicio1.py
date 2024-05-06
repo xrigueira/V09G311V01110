@@ -61,39 +61,54 @@ def visualizar_matriz(matriz):
     for fila in matriz:
         print(fila)
 
-def main():
-    matriz1 = []
-    matriz2 = []
-    opcion = 0
-    while opcion != 4:
-        print("Menú")
-        print("0. Definir el orden de la matriz y cargarla.")
-        print("1. Sumar las diagonales principales.")
-        print("2. Sumar las dos matrices y dar el resultado.")
-        print("3. Visualizarlas en forma de lista.")
-        print("4. Salir.")
-        opcion = int(input("Ingrese la opción: "))
+# Definir las matrices y la opción por defecto
+matriz1 = []
+matriz2 = []
+opcion = 0
+while opcion != 4:
+    
+    try:
+
+        # Pedir la opción al usuario
+        opcion = int(input("Menu\n0. Definir el orden de la matriz y cargarla.\n1. Sumar las diagonales principales.\n2. Sumar las dos matrices y dar el resultado.\n3. Visualizarlas en forma de lista.\n4. Salir.\n"))
+
+        if opcion not in [1, 2, 3, 4]:
+            print('Opcion no valida')
+
+        if opcion in [1, 2, 3, 4]:
+            print('Ha elegido la opcion', opcion)
+
+        else:
+            print('Hasta luego!')
+
+        # Definir el orden de la matriz y cargarla
         if opcion == 0:
             matriz1 = cargar_matriz()
             matriz2 = cargar_matriz()
+        
+        # Sumar las diagonales principales
         elif opcion == 1:
             suma1 = sumar_diagonales(matriz1)
             suma2 = sumar_diagonales(matriz2)
             print(f"La suma de la diagonal principal de la matriz 1 es: {suma1}")
             print(f"La suma de la diagonal principal de la matriz 2 es: {suma2}")
+        
+        # Sumar las dos matrices y dar el resultado
         elif opcion == 2:
             matriz_suma = sumar_matrices(matriz1, matriz2)
             print("La matriz suma es:")
             visualizar_matriz(matriz_suma)
+        
+        # Visualizarlas en forma de lista
         elif opcion == 3:
             print("Matriz 1:")
             visualizar_matriz(matriz1)
             print("Matriz 2:")
             visualizar_matriz(matriz2)
+        
+        # Salir
         elif opcion == 4:
             print("Saliendo...")
-        else:
-            print("Opción inválida")
-
-
-main()
+    
+    except ValueError:
+        print("Por favor, ingrese un número entero")
