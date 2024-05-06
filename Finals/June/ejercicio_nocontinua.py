@@ -1,77 +1,91 @@
+"""
+Definir un programe en Python cree una interfáz gráfica de cálculo de montante total para 
+productos en un almacén. La aplicación debe permitir al usuario ingresar el código del producto, 
+el nombre del producto, el precio individual y la cantidad en almacén. 
+
+Luego, debe calcular el montante total multiplicando el precio individual por la cantidad en almacén.
+Si el montante total es mayor o igual a 1000, se debe mostrar un mensaje indicando que se debe 
+provisionar caja. 
+
+Finalmente, se debe proporcionar un botón para cerrar la ventana.
+"""
 
 from tkinter import *
 
-#Función para borrar la pantalla (quitar la ventana)
-def Salir():
-    xanela.destroy()
+# Definir función para cerrar la ventana
+def finalizar():
+    ventana.destroy()
 
-#Función para iniciar el cálculo
-def Calcula():
-    Mensaxe.set("") #limpio mensaje
-    CP = CodProd.get() #campuro datos
-    NP = NomProd.get()
-    P = Precio.get()
-    C = Cantidad.get()
-    total = P * C
-    if total >= 100000.0:  #checo la condición
-        Montante.set(total) #visualizo el montante en su posición
-        Mensaxe.set("Provisionar caja") #visualizo la provisión
-        salidaMensaxe.focus()
+# Definir función para realiar el cálculo
+def operar():
+    mensaje.set("") # Limpiar el mensaje
+    
+    CP = codigo_producto.get() # Capturar los datos
+    NP = nombre_producto.get()
+    P = precio.get()
+    C = cantidad.get()
+    
+    total = P * C # Operación principal
+    
+    if total >= 1000.0:  # Verificar la condición
+        montante.set(total) # Visualizar el montante en su posición
+        mensaje.set("Provisionar caja") # Visualizar la provisión
+        mensaje_entrada.focus()
     else:
-        Montante.set(total) #visualizo montante
+        montante.set(total) # Visualizar montante
 
-#Crear la ventana, su geometría y título
-xanela = Tk()
-xanela.geometry('600x300')
-xanela.title('Examen Final NO continua')
+# Crear la ventana, su geometría y título
+ventana = Tk()
+ventana.geometry('600x300')
+ventana.title('Examen Final NO continua')
 
-#Creo el botón que llama a la función para borrar la ventana
-botonSalir = Button(xanela, text ='FIN', command = Salir)
-botonSalir.grid(row=8, column= 1)
+# Defininr el botón que llama a la función para borrar la ventana
+boton_finalizar = Button(ventana, text ='Finalizar', command = finalizar)
+boton_finalizar.grid(row=8, column= 1)
 
-#Creo el botón que arranca el proceso de cálculo
-botonarranque = Button(xanela,text='Cálculo', command = Calcula)
-botonarranque.grid(row=6, column=2)
+# Definir el botón que arranca el proceso de cálculo
+boton_calcular = Button(ventana, text='Cálculo', command = operar)
+boton_calcular.grid(row=6, column=2)
 
-#Creo una etiqueta, una variable de entrada de código del producto y su cuadro de entrada
-etiquetaCodProd= Label(xanela,text= 'Código de Producto')
-etiquetaCodProd.grid(row=0,column=0)
-CodProd = StringVar() 
-entradaCodProd = Entry(xanela, textvariable = CodProd)
-entradaCodProd.grid(row=0,column=1)
+# Deinifir una etiqueta, una variable de entrada de código del producto y su cuadro de entrada
+etiqueta_codigo_producto= Label(ventana, text= 'Código de Producto')
+etiqueta_codigo_producto.grid(row=0, column=0)
+codigo_producto = StringVar()
+entrada_codigo_producto = Entry(ventana, textvariable = codigo_producto)
+entrada_codigo_producto.grid(row=0, column=1)
 
-#Creo una etiqueta, una variable de entrada del nombre del producto y su cuadro de entrada 
-etiquetaNomProd = Label(xanela,text='Nombre del producto')
-etiquetaNomProd.grid(row=1,column=0)
-NomProd = StringVar() 
-entradaNomProd = Entry(xanela, textvariable = NomProd)
-entradaNomProd.grid(row=1,column=1)
+# Definit una etiqueta, una variable de entrada del nombre del producto y su cuadro de entrada 
+etiqueta_nombre_producto = Label(ventana, text='Nombre del producto')
+etiqueta_nombre_producto.grid(row=1, column=0)
+nombre_producto = StringVar() 
+entrada_nombre_producto = Entry(ventana, textvariable = nombre_producto)
+entrada_nombre_producto.grid(row=1, column=1)
 
-#Creo una etiqueta, una variable de entrada del precio individual y su cuadro de entrada
-etiquetaPrecio = Label(xanela,text='Precio individual')
-etiquetaPrecio.grid(row=2,column=0)
-Precio = DoubleVar() 
-entradaPrecio = Entry(xanela, textvariable = Precio)
-entradaPrecio.grid(row=2,column=1)
+# Definir una etiqueta, una variable de entrada del precio individual y su cuadro de entrada
+etiqueta_precio = Label(ventana, text='Precio individual')
+etiqueta_precio.grid(row=2, column=0)
+precio = DoubleVar() 
+entrada_precio = Entry(ventana, textvariable = precio)
+entrada_precio.grid(row=2, column=1)
 
-#Creo una etiqueta, una variable de entrada de la cantidad en almacén y su cuadro de entrada
-etiquetaCantidad = Label(xanela,text='Cantidad en almacén')
-etiquetaCantidad.grid(row=3,column=0)
-Cantidad= IntVar() 
-entradaCantidad = Entry(xanela, textvariable = Cantidad)
-entradaCantidad.grid(row=3,column=1)
+# Definir una etiqueta, una variable de entrada de la cantidad en almacén y su cuadro de entrada
+etiquetaCantidad = Label(ventana, text='Cantidad en almacén')
+etiquetaCantidad.grid(row=3, column=0)
+cantidad= IntVar() 
+entradaCantidad = Entry(ventana, textvariable = cantidad)
+entradaCantidad.grid(row=3, column=1)
 
-#Creo una etiqueta de montante, una variable de montante y su cuadro de salida
-etiquetaMontante = Label(xanela,text= 'Montante Total')
+# Definir una etiqueta de montante, una variable de montante y su cuadro de salida
+etiquetaMontante = Label(ventana, text= 'Montante Total')
 etiquetaMontante.grid(row=4,column=0)
-Montante = DoubleVar() 
-salidaMontante = Entry(xanela, textvariable = Montante, state = "readonly")
+montante = DoubleVar() 
+salidaMontante = Entry(ventana, textvariable = montante, state = "readonly")
 salidaMontante.grid(row=4,column=1)
 
-#Creo una variable de mensaje y su cuadro de salida 
-Mensaxe = StringVar() 
-salidaMensaxe = Entry(xanela, textvariable = Mensaxe, state = "readonly")
-salidaMensaxe.grid(row=5,column=1)
+# Definir una variable de mensaje y su cuadro de salida 
+mensaje = StringVar() 
+mensaje_entrada = Entry(ventana, textvariable = mensaje, state = "readonly")
+mensaje_entrada.grid(row=5,column=1)
 
 #Inicio la ventana
-xanela.mainloop()
+ventana.mainloop()
