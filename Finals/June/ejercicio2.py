@@ -14,7 +14,9 @@ Si el usuario teclea un radio inválido debe presentarse un menssaje de error in
 etiqueta habilitada para visualizar el resultado.
 """
 
-# At least 45 min to write it and 30 to type it. AT LEAST.
+# At least 45 min to write it and 30 to type it. AT LEAST for the GUI part.
+# Then at least 50 min for the other part and 40 to write.
+
 
 import math
 import tkinter as tk
