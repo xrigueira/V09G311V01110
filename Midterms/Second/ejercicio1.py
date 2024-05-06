@@ -12,7 +12,7 @@ La matriz se cargará en la opción 0 del menú que será:
 
     0. Definir el orden de la matriz y cargarla.
     1. Sumar las diagonales principales.
-    2. Sumas la dos matrices y dar el resultado.
+    2. Sumas las dos matrices y dar el resultado.
     3. Visualizarlas en forma de lista.
     4. Salir.
 """
@@ -42,10 +42,18 @@ def cargar_matriz():
     return matriz
 
 def sumar_diagonales(matriz):
-    suma = 0
-    for i in range(len(matriz)):
-        suma += matriz[i][i]
-    return suma
+    
+    # Comprobar si una matriz es cuadrada
+    filas = len(matriz)
+    columnas = len(matriz[0])
+
+    if filas != columnas:
+        print('La matriz tiene que ser cuadrada')
+    else:
+        suma = 0
+        for i in range(len(matriz)):
+            suma += matriz[i][i]
+        return suma
 
 def sumar_matrices(matriz1, matriz2):
     matriz_suma = []
