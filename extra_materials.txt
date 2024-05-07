@@ -1,0 +1,35 @@
+Materiales de la asignatura:
+
+	1. Cheat_sheet
+	2. Notes
+
+Materiales seminario:
+	
+	Tutoriales por orden de preferencia
+
+	1. Giraffe: https://www.youtube.com/watch?v=rfscVS0vtbw&t=55s&ab_channel=freeCodeCamp.org
+	2. Bro Code: https://www.youtube.com/watch?v=XKHEtdqhLK8&t=32257s&ab_channel=BroCode
+	3. Mosh: https://www.youtube.com/watch?v=_uQrJ0TkZlc&ab_channel=ProgrammingwithMosh
+
+	Other videos:
+
+	1. Learn Python in 59 seconds: https://www.youtube.com/watch?v=fabelAs_m08&ab_channel=CodePointers
+	2. Python in 100 seconds: https://www.youtube.com/watch?v=x7X9w_GIm1s&ab_channel=Fireship
+	3. Harvard CS50 https://www.youtube.com/watch?v=8mAITcNt710&list=WL&index=28&t=9073s&ab_channel=freeCodeCamp.org
+	4. How to learn to code - 8 hard truths: https://www.youtube.com/watch?v=NtfbWkxJTHw&t=38s&ab_channel=Fireship
+
+Ejercicios:
+	
+	1. easy: https://www.w3schools.com/python/python_exercises.asp
+	2. not so easy: https://aprendeconalf.es/docencia/python/ejercicios/
+
+tkinter (GUI)
+	
+	1. NeuralNine: https://www.youtube.com/watch?v=ibf5cx221hk&ab_channel=NeuralNine
+	2. freeCodeCamp.org: https://www.youtube.com/watch?v=YXPyB4XeYLA&ab_channel=freeCodeCamp.org
+
+Other:
+
+	1. Neural network MNIST from scratch: https://www.youtube.com/watch?v=w8yWXqWQYmU&ab_channel=SamsonZhang
+	2. Simple ML project with code https://www.kaggle.com/code/suneelpatel/learn-ml-from-scratch-with-iris-dataset also watch until 4:20 of this video for the intro: https://www.youtube.com/watch?v=2yvE2z-cTi4&ab_channel=Let%27sCrackIt%21
+	3. https://www3.uji.es/~vjimenez/AULASVIRTUALES/PL-0910/python-by-vilar.pdf
