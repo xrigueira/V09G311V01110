@@ -33,26 +33,26 @@ def operar():
     try:
         num1_val = num1.get()
         num2_val = num2.get()
-    except tk._tkinter.TclError:
-        etiqueta_resultado.config(text = 'Introduce un número válido')
-        return
     
-    if var.get() == 1:
-        result = num1.get() + num2.get()
-    
-    elif var.get() == 2:
-        result = num1.get() - num2.get()
-    
-    elif var.get() == 3:
-        result = num1.get() * num2.get()
-    
-    elif var.get() == 4:
-        if num2.get() == 0:
-            result = 'No se puede dividir entre 0'
-        else:
-            result = num1.get() / num2.get()
+        if var.get() == 1:
+            result = num1.get() + num2.get()
+        
+        elif var.get() == 2:
+            result = num1.get() - num2.get()
+        
+        elif var.get() == 3:
+            result = num1.get() * num2.get()
+        
+        elif var.get() == 4:
+            if num2.get() == 0:
+                result = 'No se puede dividir entre 0'
+            else:
+                result = num1.get() / num2.get()
 
-    etiqueta_resultado.config(text = result)
+        etiqueta_resultado.config(text = result)
+
+    except:
+        etiqueta_resultado.config(text = 'Introduce un número válido')
 
 def borrar():
     num1.set('')
