@@ -29,6 +29,14 @@ def etiquetas():
         etiqueta_num2.config(text = 'Divisor')
 
 def operar():
+
+    try:
+        num1_val = num1.get()
+        num2_val = num2.get()
+    except tk._tkinter.TclError:
+        etiqueta_resultado.config(text = 'Introduce un número válido')
+        return
+    
     if var.get() == 1:
         result = num1.get() + num2.get()
     
@@ -43,10 +51,6 @@ def operar():
             result = 'No se puede dividir entre 0'
         else:
             result = num1.get() / num2.get()
-    
-    # # Clear the entry boxes
-    # num1.set('')
-    # num2.set('')
 
     etiqueta_resultado.config(text = result)
 
