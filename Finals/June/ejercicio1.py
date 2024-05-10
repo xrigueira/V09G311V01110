@@ -112,6 +112,7 @@ def generar_informe(ruta_fichero):
     for producto in datos:
         total += float(producto[3])
     print('Total-------------------------------------------', total)
+
 # Menú de opciones
 opcion = 0
 while opcion != 4:
