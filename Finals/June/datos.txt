@@ -1,3 +1,4 @@
-a,apple,1,20
-p,pear,1.2,50
-av,avocado,3,50
+Oro,127,136.15
+Uranio,0,25.14
+Carbón,1450,2.13
+Titanio,13565,10000
