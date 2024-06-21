@@ -48,6 +48,7 @@ nombre = input('Nombre del fichero: ')
 nomcompleto = ruta + '\\' + nombre + '.txt'
 print(nomcompleto)
 
+# Comprobar si la ruta existe
 if os.path.exists(nomcompleto):
     fichero = open(nomcompleto, 'a')
 else:
